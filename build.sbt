@@ -42,7 +42,7 @@ lazy val `testing` =
         "systems.opalia" %% "interfaces" % mInterfacesVersion,
         "systems.opalia" %% "commons" % mCommonsVersion,
         "systems.opalia" %% "bootloader" % mBootloaderVersion,
-        "org.scalatest" %% "scalatest" % "3.0.7" % "test"
+        "org.scalatest" %% "scalatest" % "3.2.5" % "test"
       )
     )
 
@@ -69,17 +69,17 @@ lazy val `worker-impl-akka` =
       ),
 
       libraryDependencies ++= Seq(
-        "org.osgi" % "org.osgi.core" % "6.0.0" % "provided",
+        "org.osgi" % "osgi.core" % "8.0.0" % "provided",
         "org.osgi" % "org.osgi.service.component.annotations" % "1.4.0",
-        "org.osgi" % "org.osgi.service.log" % "1.4.0",
+        "org.osgi" % "org.osgi.service.log" % "1.5.0",
         "systems.opalia" %% "interfaces" % mInterfacesVersion % "provided",
         "systems.opalia" %% "commons" % mCommonsVersion excludeAll (exclusionRules: _*),
-        "com.typesafe.akka" %% "akka-actor" % "2.5.22" excludeAll (exclusionRules: _*),
-        "com.typesafe.akka" %% "akka-remote" % "2.5.22" excludeAll (exclusionRules: _*),
-        "com.typesafe.akka" %% "akka-cluster" % "2.5.22" excludeAll (exclusionRules: _*),
-        "com.typesafe.akka" %% "akka-cluster-metrics" % "2.5.22" excludeAll (exclusionRules: _*),
-        "com.typesafe.akka" %% "akka-cluster-tools" % "2.5.22" excludeAll (exclusionRules: _*),
-        "com.typesafe.akka" %% "akka-osgi" % "2.5.22" excludeAll (exclusionRules: _*),
+        "com.typesafe.akka" %% "akka-actor" % "2.6.13" excludeAll (exclusionRules: _*),
+        "com.typesafe.akka" %% "akka-remote" % "2.6.13" excludeAll (exclusionRules: _*),
+        "com.typesafe.akka" %% "akka-cluster" % "2.6.13" excludeAll (exclusionRules: _*),
+        "com.typesafe.akka" %% "akka-cluster-metrics" % "2.6.13" excludeAll (exclusionRules: _*),
+        "com.typesafe.akka" %% "akka-cluster-tools" % "2.6.13" excludeAll (exclusionRules: _*),
+        "com.typesafe.akka" %% "akka-osgi" % "2.6.13" excludeAll (exclusionRules: _*),
         "io.kamon" % "sigar-loader" % "1.6.6"
       )
     )

@@ -46,7 +46,7 @@ final class BundleConfig(config: Config) {
          |
          |    metrics.native-library-extract-folder = $nativeLibraryPath
          |
-         |    seed-nodes = [ ${seedNodes.map("\"akka.tcp://ClusterSystem@" + _ + "\"").mkString(",")} ]
+         |    seed-nodes = [ ${seedNodes.map("\"akka://ClusterSystem@" + _ + "\"").mkString(",")} ]
          |  }
          |
          |  extensions = ["akka.cluster.metrics.ClusterMetricsExtension"]
@@ -56,14 +56,14 @@ final class BundleConfig(config: Config) {
 
   val akkaFrontend: Config =
     ConfigFactory.parseString("akka.cluster.roles = [frontend]")
-      .withFallback(ConfigFactory.parseString(s"akka.remote.netty.tcp.hostname = ${frontendServer.hostString}"))
-      .withFallback(ConfigFactory.parseString(s"akka.remote.netty.tcp.port = ${frontendServer.port}"))
+      .withFallback(ConfigFactory.parseString(s"akka.remote.classic.netty.tcp.hostname = ${frontendServer.hostString}"))
+      .withFallback(ConfigFactory.parseString(s"akka.remote.classic.netty.tcp.port = ${frontendServer.port}"))
       .withFallback(akka)
 
   val akkaBackend: Config =
     ConfigFactory.parseString("akka.cluster.roles = [backend]")
-      .withFallback(ConfigFactory.parseString(s"akka.remote.netty.tcp.hostname = ${backendServer.hostString}"))
-      .withFallback(ConfigFactory.parseString(s"akka.remote.netty.tcp.port = ${backendServer.port}"))
+      .withFallback(ConfigFactory.parseString(s"akka.remote.classic.netty.tcp.hostname = ${backendServer.hostString}"))
+      .withFallback(ConfigFactory.parseString(s"akka.remote.classic.netty.tcp.port = ${backendServer.port}"))
       .withFallback(akka)
 
   val processTimeout: FiniteDuration = config.as[FiniteDuration]("worker.process-timeout")
